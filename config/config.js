@@ -46,7 +46,7 @@ var config =  {
 					post_type : ['page']
 				},
 				to : 'delete',
-				format : 'json',
+				format : 'docpad',
 				filename: '{post_title}'
 			}
 		]
