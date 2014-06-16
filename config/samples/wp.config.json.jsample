@@ -1,0 +1,29 @@
+{
+	db : {
+		type : 'mysql',
+		address : 'localhost',
+		table_prefix : 'wp_',
+		username : 'test',
+		password : 'test'
+	},
+	exports : [
+		{
+			from : 'posts',
+			where : {
+				post_type : ['post'],
+				author_id : '1'
+			},
+			to : 'documents/posts',
+			format : 'json'
+		},
+		{
+			from : 'pages',
+			where : {
+				post_type : ['page'],
+				author_id : '1'
+			},
+			to : 'documents/pages',
+			format : 'json'
+		},
+	]
+}
