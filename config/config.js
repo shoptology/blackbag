@@ -19,7 +19,8 @@ var config =  {
 				'post_title',
 				'post_excerpt',
 				'post_name',
-				'post_type'
+				'post_type',
+				'myprop'
 			],
 			body : [
 				'post_content'
