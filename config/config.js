@@ -29,13 +29,13 @@ var config =  {
 			{
 				from : 'wp_posts, wp_postmeta, wp_comments',
 				where : {
-					"wp_posts.ID" : 'wp_postmet.post_id',
+					"wp_posts.ID" : 'wp_postmeta.post_id',
 					'wp_posts.post_type' : 'page',
 					post_author : '1'
 				},
 				to : 'documents/posts',
 				format : 'json',
-				filename: '{post_title}',
+				filename: '{post_title}.json',
 				map : {
 					
 				}
@@ -47,7 +47,7 @@ var config =  {
 				},
 				to : 'delete',
 				format : 'docpad',
-				filename: '{post_title}'
+				filename: '{post_title}.html'
 			}
 		]
 	},
