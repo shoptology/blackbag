@@ -47,11 +47,13 @@ var config =  {
 				},
 				to : 'delete',
 				format : 'docpad',
-				filename: '{post_title}.html'
+				filename: '{post_title}.html',
+				prependDate: 'post_date',
+				prependDateFormat: 'YYYY-MM-DD',
 			}
 		]
 	},
-	filenameSpaceReplace : '-'
+	filenameSeparator : '-'
 };
 
 module.exports = config;
