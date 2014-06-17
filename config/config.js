@@ -9,7 +9,7 @@ var config =  {
 		username : 'root',
 		password : '2#perday'
 	},
-	exports : {
+	options : {
 		exporter : 'wordpress',
 		map : {
 			meta : [
@@ -25,35 +25,42 @@ var config =  {
 				'post_content'
 			]
 		},
-		data : [
-			{
+		filenameSeparator : '-'
+	},
+	exports : [
+		{
+			query : {
 				from : 'wp_posts, wp_postmeta, wp_comments',
 				where : {
 					"wp_posts.ID" : 'wp_postmeta.post_id',
-					'wp_posts.post_type' : 'page',
-					post_author : '1'
-				},
+					'wp_posts.post_type' : 'page'
+				}
+			},
+			options : {
 				to : 'documents/posts',
 				format : 'json',
 				filename: '{post_title}.json',
 				map : {
 					
 				}
-			},
-			{
+			}
+		},
+		{
+			query : {
 				from : 'wp_posts',
 				where : {
 					post_type : ['page']
-				},
+				}
+			},
+			options : {
 				to : 'delete',
 				format : 'docpad',
 				filename: '{post_title}.html',
 				prependDate: 'post_date',
-				prependDateFormat: 'YYYY-MM-DD',
+				prependDateFormat: 'YYYY-MM-DD'
 			}
-		]
-	},
-	filenameSeparator : '-'
+		}
+	]
 };
 
 module.exports = config;
