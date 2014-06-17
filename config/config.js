@@ -59,6 +59,17 @@ var config =  {
 				prependDate: 'post_date',
 				prependDateFormat: 'YYYY-MM-DD'
 			}
+		},
+		{
+			query : {
+				from : 'wp_options'
+			},
+			options : {
+				to : 'delete',
+				format : 'json',
+				filename : 'wp_options.json',
+				flatten : true
+			}
 		}
 	]
 };
