@@ -20,7 +20,9 @@ var config =  {
 				'post_excerpt',
 				'post_name',
 				'post_type',
-				'myprop'
+				{
+					'layout' : 'test_layout'
+				}
 			],
 			body : [
 				'post_content'
