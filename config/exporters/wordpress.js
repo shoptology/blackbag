@@ -3,7 +3,7 @@
 var exporter = {
 	config : {
 		options : {
-			query_continue : true
+			query_continue : false
 		}
 	},
 	export : function(query_object) {
