@@ -1,6 +1,6 @@
 'use strict';
 
-var jekyll_config =  {
+var config =  {
 	options : {
 		prependDate: 'post_date',
 		prependDateFormat: 'YYYY-MM-DD',
@@ -9,4 +9,4 @@ var jekyll_config =  {
 	}
 };
 
-module.exports = jekyll_config;
+module.exports = config;
