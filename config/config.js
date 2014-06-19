@@ -55,7 +55,7 @@ var config =  {
 			},
 			options : {
 				to : 'delete',
-				format : 'docpad',
+				format : 'jekyll',
 				filename: '{post_title}.html',
 				prependDate: 'post_date',
 				prependDateFormat: 'YYYY-MM-DD'
