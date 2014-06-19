@@ -1,5 +1,7 @@
 'use strict';
 
+var yaml = require('js-yaml');
+
 var formatter =  {
 	config : {
 		options : {
@@ -9,8 +11,15 @@ var formatter =  {
 			filenameSeparator : '-'
 		}
 	},
-	format : function() {
-		
+	format : function(data) {
+		var processed;
+
+		processed = '---\n' + yaml.dump(data.meta) + '---\n';
+		for(var b in data.body) {
+			processed += data.body[b];
+		}
+
+		return processed;
 	}
 };
 

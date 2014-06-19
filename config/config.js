@@ -31,7 +31,7 @@ var config =  {
 		filenameSeparator : '-'
 	},
 	exports : [
-		{
+		/*{
 			query : {
 				from : 'wp_posts, wp_postmeta, wp_comments',
 				where : {
@@ -47,7 +47,7 @@ var config =  {
 					
 				}
 			}
-		},
+		},*/
 		{
 			query : {
 				from : 'wp_posts',
