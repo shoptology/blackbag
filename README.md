@@ -34,7 +34,7 @@ var config =  {
 				'post_author',
 				'post_date',
 				'post_title',
-		        }
+				}
 					'layout' : 'test_layout'
 				}
 			],
@@ -79,20 +79,26 @@ module.exports = config;
 ### What do the options do?
 
 * **db** (Object): provides database type, and connection details
+	* **type** (String): Defines the database type used by the CMS
+	* **address** (String): Defines the database URL
+	* **database** (String): Defines the database to use on the server
+	* **username** (String): Defines the username used to connect to the database
+	* **password** (String): Defines the password used to connect to the database
 * **exporter** (String): Points to an exporter config file that will create defaults for that type of CMS
-* **map** (Object):
-	* **meta** (Array);
-	* **body** (Array);
-* **query** (Object / String):
-	* **from** (String):
-	* **where** (Object): 
-* **to** (String):
-* **format** (String):
-* **filename** (String):
-* **filenameSeperator** (String):
-* **prependDate** (String):
-* **prependDateFormat** (String):
-* **flatten** (Boolean):
+* **map** (Object): Defines the data mapping for files to be written
+	* **meta** (Array): Defines the list of fields to be included in an object's meta field
+		* **element** (String / Object): Use a String to map to a database object or an Object to define custom meta data
+	* **body** (Array): Defines the list of fields to be added to an object's body field
+* **query** (Object / String): Defines what data to be pull from the database; if a String, the raw query string is used
+	* **from** (String): Defines the table/collection to get data from
+	* **where** (Object): Defines conditions that must be satisfied for a piece of content to be returned
+* **to** (String): Path to save files to
+* **format** (String): File or Flatfile format to export to
+* **filename** (String): Template for file file names
+* **filenameSeperator** (String): Character to use for word separation in file names
+* **prependDate** (String): Defines the date field to use at the beginning of the saved file
+* **prependDateFormat** (String): Defines the format used to display the date in the filename
+* **flatten** (Boolean): Defines whether or not all results from a query should be combined into a single result (good for exporting options tables)
 
 ### Exporters & Formatters
 Exporters and formatters are preset configs for different CMS' and Static File Generators.  Each config will fill in defaults into your config, unless you specify that config setting in your master config.  To use a exporter, add `exporter:EXPORTERNAME` to the config options object.  To use a formatter, add `format:FORMATTERNAME`.
