@@ -5,7 +5,7 @@ var config =  {
 		type : 'mysql',
 		address : 'apps.m11dev.com',
 		database : 'bolddental',
-		table_prefix : '',
+		table_prefix : 'wp_',
 		username : 'root',
 		password : '2#perday'
 	},
