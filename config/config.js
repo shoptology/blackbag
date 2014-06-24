@@ -10,7 +10,7 @@ var config =  {
 		password : '2#perday'
 	},
 	options : {
-		exporter : 'drupal',
+		exporter : 'wordpress',
 		map : {
 			meta : [
 				'ID',
@@ -33,14 +33,13 @@ var config =  {
 	exports : [
 		{
 			query : {
-				from : 'wp_posts, wp_postmeta, wp_comments',
+				from : 'wp_posts',
 				where : {
-					"wp_posts.ID" : 'wp_postmeta.post_id',
-					'wp_posts.post_type' : 'page'
+					'post_type' : 'page'
 				}
 			},
 			options : {
-				to : 'documents/posts',
+				to : 'delete',
 				format : 'json',
 				filename: '{post_title}.json',
 				map : {
