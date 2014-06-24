@@ -97,17 +97,22 @@ module.exports = config;
 ### Exporters & Formatters
 Exporters and formatters are preset configs for different CMS' and Static File Generators.  Each config will fill in defaults into your config, unless you specify that config setting in your master config.  To use a exporter, add `exporter:EXPORTERNAME` to the config options object.  To use a formatter, add `format:FORMATTERNAME`.
 
+#### Currently supported exporters:
+* Wordpress
+* Drupal
 
+#### Currently supported formatters:
+* JSON
+* Markdown
+* Jekyll
+* Docpad
 
+### Samples
+Included are configuration samples for a few combinations of CMS to flat file.  Also included is the 'all options' config file for reference.
 
-## Examples
-_(Coming soon)_
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
 
 ## License
 Copyright (c) 2014 Michael May | Ivan Mayes. Licensed under the MIT license.
