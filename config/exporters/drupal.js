@@ -6,10 +6,14 @@ var exporter = {
 			query_continue : false
 		}
 	},
-	export : function(query_object, database) {
+	export : function(query_object, database, cb) {
+		var db = database;
 
+		var return_data = [{
+			post_title : 'Some title'
+		}];
 
-		return '**SOME-DATA***';
+		cb(return_data);
 	},
 	get : {
 		posts : {}
