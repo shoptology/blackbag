@@ -31,7 +31,7 @@ var config =  {
 		filenameSeparator : '-'
 	},
 	exports : [
-		/*{
+		{
 			query : {
 				from : 'wp_posts, wp_postmeta, wp_comments',
 				where : {
@@ -46,16 +46,6 @@ var config =  {
 				map : {
 					
 				}
-			}
-		},*/
-		{
-			query : 'SHOW TABLES',
-			options : {
-				to : '_posts',
-				format : 'jekyll',
-				filename: '{post_title}.markdown',
-				prependDate: 'post_date',
-				prependDateFormat: 'YYYY-MM-DD'
 			}
 		}
 	]

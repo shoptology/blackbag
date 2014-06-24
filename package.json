@@ -1,5 +1,5 @@
 {
-  "name": "blackbag",
+  "name": "Blackbag",
   "version": "0.0.0",
   "main": "lib/blackbag.js",
   "description": "CMS to flat-file courier",
