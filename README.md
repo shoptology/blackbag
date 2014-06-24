@@ -103,7 +103,7 @@ module.exports = config;
 ### Exporters & Formatters
 Exporters and formatters are preset configs for different CMS' and Static File Generators.  Each config will fill in defaults into your config, unless you specify that config setting in your master config.  To use a exporter, add `exporter:EXPORTERNAME` to the config options object.  To use a formatter, add `format:FORMATTERNAME`.  
 
-You can also build your own exporter/formatter by copying a sample file and inserting your default options and exporting / formatting functions.
+You can also build your own exporter/formatter by copying a sample file and inserting your default options and exporting / formatting functions.  If you get an exporter or fomatter working, please submit a pull request and we will include it in the project!
 
 #### Currently supported exporters:
 * Wordpress
