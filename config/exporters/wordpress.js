@@ -2,8 +2,15 @@
 
 var exporter = {
 	config : {
+		type : 'mysql',
+		table_prefix : '',
 		options : {
-			query_continue : true
+			query_continue : true,
+			map : {
+				body : [
+					'post_content'
+				]
+			}
 		}
 	},
 	export : function(query_object) {

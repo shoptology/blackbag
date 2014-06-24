@@ -23,31 +23,11 @@ var config =  {
 				{
 					'layout' : 'test_layout'
 				}
-			],
-			body : [
-				'post_content'
 			]
 		},
 		filenameSeparator : '-'
 	},
 	exports : [
-		/*{
-			query : {
-				from : 'wp_posts, wp_postmeta, wp_comments',
-				where : {
-					"wp_posts.ID" : 'wp_postmeta.post_id',
-					'wp_posts.post_type' : 'page'
-				}
-			},
-			options : {
-				to : 'documents/posts',
-				format : 'json',
-				filename: '{post_title}.json',
-				map : {
-					
-				}
-			}
-		},*/
 		{
 			query : {
 				from : 'wp_posts',
