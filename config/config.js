@@ -49,13 +49,27 @@ var config =  {
 			}
 		},*/
 		{
-			query : 'SHOW TABLES',
+			query : {
+				content_type : 'article'
+			},
 			options : {
 				to : '_posts',
 				format : 'jekyll',
 				filename: '{post_title}.markdown',
 				prependDate: 'post_date',
-				prependDateFormat: 'YYYY-MM-DD'
+				prependDateFormat: 'YYYY-MM-DD',
+				map {
+					meta : [
+						'language',
+						'bundle',
+						'entity_id',
+						'created',
+						'changed'
+					],
+					body : [
+						'body_value'
+					]
+				}
 			}
 		}
 	]
