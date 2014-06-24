@@ -3,11 +3,11 @@
 var config =  {
 	db : {
 		type : 'mysql',
-		address : 'localhost',
-		database : 'drup240',
+		address : 'apps.m11dev.com',
+		database : 'bolddental',
 		table_prefix : '',
 		username : 'root',
-		password : 'mysql'
+		password : '2#perday'
 	},
 	options : {
 		exporter : 'drupal',
