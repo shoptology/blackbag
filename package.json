@@ -31,6 +31,7 @@
     "test": "grunt"
   },
   "dependencies": {
+    "async": "^0.9.0",
     "date-utils": "^1.2.16",
     "html-md": "^3.0.2",
     "js-yaml": "^3.0.2",

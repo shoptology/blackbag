@@ -12,7 +12,7 @@ var config =  {
 	options : {
 		exporter : 'wordpress',
 		map : {
-			meta : [
+			/*meta : [
 				'ID',
 				'post_author',
 				'post_date',
@@ -23,7 +23,7 @@ var config =  {
 				{
 					'layout' : 'test_layout'
 				}
-			],
+			],*/
 			body : [
 				'post_content'
 			]
@@ -35,16 +35,13 @@ var config =  {
 			query : {
 				from : 'wp_posts',
 				where : {
-					'post_type' : 'page'
+					'post_type' : 'page',
+					'wp_posts.ID' : '{wp_postmeta.post_id}'
 				}
 			},
 			options : {
 				to : 'delete',
-				format : 'json',
-				filename: '{post_title}.json',
-				map : {
-					
-				}
+				format : 'jekyll'
 			}
 		}
 	]

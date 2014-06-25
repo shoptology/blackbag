@@ -91,7 +91,7 @@ module.exports = config;
 	* **body** (Array): Defines the list of fields to be added to an object's body field
 * **query** (Object / String): Defines what data to be pull from the database; if a String, the raw query string is used
 	* **from** (String): Defines the table/collection to get data from
-	* **where** (Object): Defines conditions that must be satisfied for a piece of content to be returned
+	* **where** (Object): Defines conditions that must be satisfied for a piece of content to be returned.  Add curly braces for column references (eg. {wp_posts.ID} )
 * **to** (String): Path to save files to
 * **format** (String): File or Flatfile format to export to
 * **filename** (String): Template for file file names

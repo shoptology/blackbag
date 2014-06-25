@@ -8,7 +8,7 @@ var formatter =  {
 		options : {
 			prependDate: 'post_date',
 			prependDateFormat: 'YYYY-MM-DD',
-			filename: '{post_title}.html',
+			filename: '{post_title}.md',
 			filenameSeparator : '-'
 		}
 	},
