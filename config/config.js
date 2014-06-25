@@ -33,7 +33,7 @@ var config =  {
 	exports : [
 		{
 			query : {
-				from : 'wp_posts',
+				from : 'wp_post',
 				where : {
 					'post_type' : 'post'
 				}
