@@ -35,8 +35,7 @@ var config =  {
 			query : {
 				from : 'wp_posts',
 				where : {
-					'post_type' : 'page',
-					'wp_posts.ID' : '{wp_postmeta.post_id}'
+					'post_type' : 'post'
 				}
 			},
 			options : {
