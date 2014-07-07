@@ -13,13 +13,15 @@ var exporter = {
 
 		exporter.get.articles(function(articles) {
 
-			console.log(articles);
+			//console.log(articles);
+
+			console.log(articles[0]);
 			/*
 			var return_data = [{
 				post_title : 'Some title'
-			}];
+			}];*/
 
-			//cb(return_data);*/
+			cb(articles);
 		});
 	},
 	get : {
@@ -33,17 +35,23 @@ var exporter = {
 					var field_data = [];
 					for(var t in tables) {
 						if(tables[t].match(/^field_data/) &&
-							tables[t] !== 'field_data_field_tags') field_data.push(tables[t]);
+							tables[t] !== 'field_data_field_tags' &&
+							tables[t] !== 'field_data_field_image') field_data.push(tables[t]);
 					}
 
 					async.each(articles_raw,
 						function(article, callback) {
-							var id = article.id;
+							var id = article.nid;
 
 							async.parallel({
 								tags : function(cb_inner) {
 									exporter.get.field_tags(id, function(tags) {
 										cb_inner(null, tags);
+									});
+								},
+								images : function(cb_inner) {
+									exporter.get.field_images(id, function(imgs) {
+										cb_inner(null, imgs);
 									});
 								},
 								fields : function(cb_inner) {
@@ -52,10 +60,11 @@ var exporter = {
 									});
 								}
 							}, function(err, results) {
-								//console.log(results.tags, results.fields);
-								console.log(results.fields);
-								article.fields = results.fields;
-								article.fields.tags = results.tags;
+								article.fields_raw = results.fields;
+								article.tags = results.tags;
+								article.images = results.images;
+								article.body = results.fields.field_data_body.body_value;
+								article.summary = results.fields.field_data_body.body_summary;
 								articles.push(article);
 								callback();
 							});
@@ -84,12 +93,21 @@ var exporter = {
 					exporter.db.query({
 						query : query
 					}, function(rows) {
-						fields[field] = rows;
+						// Custom handlers for known fields
+						if(field == 'field_data_body') {
+							fields[field] = {};
+							fields[field].body_value = rows[0].body_value;
+							fields[field].body_summary = rows[0].body_summary;
+						} else {
+							// Might want to handle row arrays differently...
+							fields[field] = rows;
+						}
+						
 						callback();
 					});
 				},
 				function(err) {
-					console.log(fields);
+					//console.log(fields);
 					cb(fields);
 				}
 			);
@@ -123,8 +141,36 @@ var exporter = {
 				);
 			});
 		},
-		field_image : function() {
+		field_images : function(nid, cb) {
+			var query = 'SELECT `field_image_fid` FROM `field_data_field_image`';
 
+			if(typeof nid === 'number') {
+				query += ' WHERE `field_image_fid` = ' + nid;
+			}
+
+			exporter.db.query({
+				query : query
+			},
+			function(images) {
+				var images_processed = [];
+
+				async.each(images,
+					function(image, callback) {
+						var id = image.field_image_fid;
+						exporter.db.query({
+							query : 'SELECT `uri` FROM `file_managed` WHERE `fid` = ' + id
+						},
+						function(image_uri) {
+							// This URI may not be formatted as a full, public URI
+							images_processed.push(image_uri[0].uri);
+							callback();
+						});
+					},
+					function(err) {
+						cb(images_processed);
+					}
+				);
+			});
 		},
 		tables : function(cb) {
 			exporter.db.query({ query : 'SHOW TABLES' }, function(tables_raw) {
