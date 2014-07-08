@@ -1,6 +1,6 @@
 {
   "name": "Blackbag",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/blackbag.js",
   "description": "CMS to flat-file courier",
   "homepage": "http://goshoptology.com",
@@ -10,7 +10,7 @@
     "email": ""
   },
   "bin": {
-    "blackbag": "./bin/blackbag.js"
+    "blackbag": "./lib/index.js"
   },
   "main": "./lib/index.js",
   "preferGlobal": "true",
