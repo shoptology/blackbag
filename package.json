@@ -9,6 +9,11 @@
     "name": "Michael May | Ivan Mayes",
     "email": ""
   },
+  "bin": {
+    "blackbag": "./bin/blackbag.js"
+  },
+  "main": "./lib/index.js",
+  "preferGlobal": "true",
   "repository": {
     "type": "git",
     "url": "https://github.com/michael-may/blackbag"
@@ -27,7 +32,7 @@
     "time-grunt": "^0.3.1"
   },
   "scripts": {
-    "start": "node lib/blackbag.js",
+    "start": "node lib/index.js",
     "test": "grunt"
   },
   "dependencies": {
